@@ -1,15 +1,17 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [inquiry, setInquiry] = useState('')
 
   return (
-    <div className="App">
-      Hello, World!
+    <div className="contentContainer text-center">
+      <h1 className="text-4xl my-28">KorBuddy</h1>
+      <input type="text"></input>
+      <button className="ml-5 border-2 border-white w-28">Submit</button>
     </div>
+    
   )
 }
 

@@ -1,0 +1,11 @@
+.MuiTextField-root {
+    .Mui-focused {
+        fieldset {
+            border-color: rgb(156, 28, 31) !important;
+        }
+    }
+}
+
+html {
+    background-color: green;
+}

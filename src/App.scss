@@ -1,15 +1,22 @@
 .contentContainer {
     height: 100vh;
 
+    .conversationContainer {
+        height: 65vh;
+    }
+
     input[type="text"]{
         vertical-align: top;
         white-space: normal;
     }
 
     .inquiryInput {
-        position: absolute;
+        width: 700px;
         margin-bottom: 64px;
-        bottom: 0;
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%)
     }
 
     .submitButton {

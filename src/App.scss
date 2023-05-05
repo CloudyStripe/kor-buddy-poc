@@ -3,6 +3,16 @@
 
     .conversationContainer {
         height: 65vh;
+        overflow: auto;
+
+        .conversationCard {
+            font-weight: bold;
+            width: 70%;
+            margin: 15px auto 15px auto;
+            text-align: left;
+            padding: 15px 30px 15px 30px;
+        }
+
     }
 
     input[type="text"]{

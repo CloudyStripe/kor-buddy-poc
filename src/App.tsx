@@ -44,9 +44,9 @@ function App() {
     <Container className="contentContainer bg-white text-center flex flex-col items-center">
       <h1 className="text-4xl h-[100px] text-black pt-7">KorBuddy</h1>
       <Stack className="conversationContainer">
-        {messageCollection.map((x) => {
+        {messageCollection.map((x, i) => {
           return (
-            <Paper>{x}</Paper>
+            <Paper className='conversationCard'>{x}</Paper>
           )
         })}
       </Stack>

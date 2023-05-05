@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.scss'
 import { chat } from './ChatService/ChatService'
 import { MaterialInput } from './Components/Input'
-import { InputAdornment } from '@mui/material'
+import { Container, InputAdornment, Paper, Stack } from '@mui/material'
 import { MaterialIconButton } from './Components/IconButton'
 import { Publish } from '@mui/icons-material'
 
 function App() {
 
   const [inquiry, setInquiry] = useState<string>('')
-  const [response, setResponse] = useState<string>('')
+  const [messageCollection, setMessageCollection] = useState<string[]>([])
 
   const inputCustomization = {
     fieldset: {
@@ -27,18 +27,28 @@ function App() {
 
 
   const sendInquiry = async () => {
+    setMessageCollection(prevArray => [...prevArray, inquiry])
     const chatResponse = await chat(inquiry)
     const responseMessage = chatResponse.data.choices[0].message
     if (responseMessage) {
-      setResponse(responseMessage.content)
+      setMessageCollection(prevArray => [...prevArray, responseMessage.content])
+    }
+    else {
+      const error = "We're sorry, there was a problem constructing the reponse. Please try again."
+      setMessageCollection(prevArray => [...prevArray, error])
     }
   }
 
   return (
-    <div className="contentContainer bg-white text-center flex flex-col items-center">
-      <h1 className="text-4xl my-28">KorBuddy</h1>
-      <button className="ml-5 border-2 border-white w-28">Submit</button>
-      <textarea className="text-black w-[500px] h-[200px] p-2 m-2" readOnly value={response}></textarea>
+    <Container className="contentContainer bg-white text-center flex flex-col items-center">
+      <h1 className="text-4xl h-[100px] text-black pt-7">KorBuddy</h1>
+      <Stack className="conversationContainer">
+        {messageCollection.map((x, i) => {
+          return (
+            <Paper className='conversationCard'>{x}</Paper>
+          )
+        })}
+      </Stack>
       <MaterialInput
         className="inquiryInput mb-16 w-2/4"
         placeholder='Ask a question'
@@ -48,13 +58,13 @@ function App() {
         InputProps={{
           endAdornment:
             <InputAdornment position='end'>
-              <MaterialIconButton onClick={sendInquiry}> 
+              <MaterialIconButton onClick={sendInquiry}>
                 <Publish className='submitButton'></Publish>
               </MaterialIconButton>
             </InputAdornment>
         }}
       />
-    </div>
+    </Container>
   )
 }
 

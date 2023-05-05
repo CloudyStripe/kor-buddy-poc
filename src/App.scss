@@ -1,15 +1,32 @@
 .contentContainer {
     height: 100vh;
 
+    .conversationContainer {
+        height: 65vh;
+        overflow: auto;
+
+        .conversationCard {
+            font-weight: bold;
+            width: 70%;
+            margin: 15px auto 15px auto;
+            text-align: left;
+            padding: 15px 30px 15px 30px;
+        }
+
+    }
+
     input[type="text"]{
         vertical-align: top;
         white-space: normal;
     }
 
     .inquiryInput {
-        position: absolute;
+        width: 700px;
         margin-bottom: 64px;
-        bottom: 0;
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%)
     }
 
     .submitButton {

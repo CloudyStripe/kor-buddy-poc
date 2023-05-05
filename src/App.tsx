@@ -5,6 +5,7 @@ import { MaterialInput } from './Components/Input'
 import { Container, InputAdornment, Paper, Stack } from '@mui/material'
 import { MaterialIconButton } from './Components/IconButton'
 import { Publish } from '@mui/icons-material'
+import logoBuddy from './assets/logoBuddy.png'
 
 function App() {
 
@@ -41,9 +42,11 @@ function App() {
 
   return (
     <Container className="contentContainer bg-white text-center flex flex-col items-center">
-      <h1 className="text-4xl h-[100px] text-black pt-7">KorBuddy</h1>
+      <h1 className="text-4xl h-[100px] text-black pt-7 w-fit m-auto">
+          <img src={logoBuddy}/>
+      </h1>
       <Stack className="conversationContainer">
-        {messageCollection.map((x, i) => {
+        {messageCollection.map((x) => {
           return (
             <Paper className='conversationCard'>{x}</Paper>
           )

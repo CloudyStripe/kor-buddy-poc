@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.scss'
 import { chat } from './ChatService/ChatService'
 import { MaterialInput } from './Components/Input'
@@ -9,7 +9,6 @@ import { Publish } from '@mui/icons-material'
 function App() {
 
   const [inquiry, setInquiry] = useState<string>('')
-  //const [response, setResponse] = useState<string>('')
   const [messageCollection, setMessageCollection] = useState<string[]>([])
 
   const inputCustomization = {

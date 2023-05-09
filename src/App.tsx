@@ -17,7 +17,7 @@ export interface dialogue {
 function App() {
 
   const [inquiry, setInquiry] = useState<string>('')
-  const [messageCollection, setMessageCollection] = useState<dialogue[]>([])
+  const [messageCollection, setMessageCollection] = useState<dialogue[]>([{role: 'assistant', message: 'Hi! How can I help you today?'}])
 
   const inputCustomization = {
     fieldset: {
